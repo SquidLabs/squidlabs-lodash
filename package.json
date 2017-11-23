@@ -1,0 +1,34 @@
+{
+  "name": "squidlabs-lodash",
+  "version": "0.0.1",
+  "description": "Sugar functions on top of lodash",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  },
+  "devDependencies": {
+    "qunit": "^2.4.1",
+    "qunit-extras": "^3.0.0",
+    "qunitjs": "^2.4.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SquidLabs/squidlabs-lodash.git"
+  },
+  "keywords": [
+    "Squid",
+    "Labs",
+    "SquidLabs",
+    "lodash",
+    "extension"
+  ],
+  "author": "Richard Butler",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/SquidLabs/squidlabs-lodash/issues"
+  },
+  "homepage": "https://github.com/SquidLabs/squidlabs-lodash#readme"
+}
