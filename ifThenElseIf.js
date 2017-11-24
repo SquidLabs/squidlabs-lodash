@@ -1,33 +1,26 @@
-var cond = require('lodash/cond');
-var ifThenElse = require('./ifThenElse');
-var asFunction = require('./asFunction');
-var even = require('./isEven')
-/**
- * A wrapper around if
- * with the `this` binding of `thisArg` and the arguments of `args`.
- *
- * @private
- * @param {Function} func The function to invoke.
- * @param {*} thisArg The `this` binding of `func`.
- * @param {Array} args The arguments to invoke `func` with.
- * @returns {*} Returns the result of `func`.
- */
+var apply = require('lodash/_apply');
+var chunk = require('lodash/chunk');
+var baseIteratee = require('lodash/_baseIteratee');
+var baseRest = require('lodash/_baseRest');
+var isOdd = require('./isOdd');
+var stubTrue = require('lodash/stubTrue');
+
 function ifThenElseIf() {
-  return cond(
-    map(
-      ifThenElse(isEven(arguments.length),
-        toArray(arguments),
-        concat(
-          take(arguments, arguments.length - 1),
-          stubTrue,
-          last(arguments)
-        )
-      ),
-      function (value, idx) {
-        return isEven(idx) ? asFunction(value) : value;
-      }
-    )
-  )
+  if (arguments.length < 2) throw "invald number of arguments";
+
+  var pairs = Array.prototype.slice.call(arguments);
+  if (isOdd(pairs.length)) pairs.splice(pairs.length - 1, 0, stubTrue());
+  pairs = chunk(pairs, 2);
+
+  var index = -1;
+  while (++index < pairs.length) {
+    var pair = pairs[index];
+    if (pair[0]) {
+      return pair[1];
+    }
+  }
 }
+
+
 
 module.exports = ifThenElseIf;
