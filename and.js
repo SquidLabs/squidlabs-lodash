@@ -1,3 +1,8 @@
+/**
+ *
+ *
+ * @returns
+ */
 function and() {
   return every(arguments, constant) ? last(arguments) : false;
 }
